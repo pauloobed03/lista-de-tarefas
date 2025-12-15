@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model tarefas {
+  id     String  @id @default(cuid())
+  tarefa String
+  estado Boolean @default(false)
+}
